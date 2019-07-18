@@ -1,0 +1,41 @@
+--------------FORTRAN from FORTRAN-----------------------
+
+>>gfortran -c f-sum.f90 -o f-sum.o
+>>gfortran -c f-main.f90 -o f-main.o
+
+>>nm f-main.o
+ U _gfortran_set_args
+                 U _gfortran_set_options
+                 U _gfortran_st_write
+                 U _gfortran_st_write_done
+                 U _gfortran_transfer_character_write
+                 U _gfortran_transfer_integer_write
+                 U _GLOBAL_OFFSET_TABLE_
+00000000000000e2 T main
+0000000000000000 t MAIN__
+0000000000000020 r options.1.3512
+                 U sum_abs_       !!!!!!!!!!!fortran pone underscore
+
+>>nm f-sum.o
+0000000000000000 T sum_abs_
+
+--------------C from C------------------------------------
+>>gcc -c c-main.c -o c-main.o
+>>gcc -c c-sum.c -o c-sum.o
+
+>>nm c-main.o
+ U _GLOBAL_OFFSET_TABLE_
+0000000000000000 T main
+                 U printf
+                 U __stack_chk_fail
+                 U sum_abs      ###########C no pone underscore
+
+>>nm c-sum.o
+0000000000000000 T sum_abs
+
+
+
+
+
+
+

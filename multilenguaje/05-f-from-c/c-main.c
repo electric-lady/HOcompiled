@@ -4,6 +4,8 @@
 
 #define NUM 200
 
+extern int sum_abs_(int *inp, int *num);
+
 int main(int argc, char **argv)
 {
     int data[NUM], num, i;
@@ -13,6 +15,6 @@ int main(int argc, char **argv)
         data[i] = i - 100 + 1;  /* NOTE: difference in array numbering */  
     }
 
-    printf("sum=%d\n", sum_abs(data, num));
+    printf("sum=%d\n", sum_abs_(data, &num));
     return 0;
 }
